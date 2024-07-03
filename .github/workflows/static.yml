@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Storybook to Pages
+name: Deploy Storybook to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -31,12 +31,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14" # or the version you're using
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'storybook-static'
+          # Upload the Storybook build directory
+          path: "storybook-static"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
