@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload the Storybook build directory
-          path: "storybook-static"
+          path: "./storybook-static"
 
       - name: Deploy to GitHub Pages
         id: deployment
