@@ -3,6 +3,8 @@ name: Deploy Storybook to GitHub Pages
 on:
   push:
     branches: ["main"]
+    paths:
+      - "./storybook-static"
   workflow_dispatch:
 
 permissions:
