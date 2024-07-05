@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
+import { Progress } from "@/components/ui/progress";
 
 export function ToastWithAction() {
   const { toast } = useToast();
@@ -26,6 +27,7 @@ export default function App() {
     <>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <ToastWithAction />
+      <Progress value={33} />
     </>
   );
 }

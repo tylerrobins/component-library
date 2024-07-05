@@ -782,6 +782,10 @@ body {
   grid-column: span 3 / span 3;
 }
 
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
 .row-span-3 {
   grid-row: span 3 / span 3;
 }
@@ -1145,6 +1149,10 @@ body {
   width: 400px;
 }
 
+.w-\[60\%\] {
+  width: 60%;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -1297,6 +1305,10 @@ body {
 
 .grid-cols-\[25px_1fr\] {
   grid-template-columns: 25px 1fr;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-row {
