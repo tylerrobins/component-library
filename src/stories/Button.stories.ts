@@ -47,7 +47,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Control: Story = {
+export const Default: Story = {
   args: {
     children: "Button",
     variant: "default",
