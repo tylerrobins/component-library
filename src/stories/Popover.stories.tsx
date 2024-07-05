@@ -20,6 +20,7 @@ const meta = {
       description: "ReactNode for Popover",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Popover>;
 export default meta;
 

@@ -27,6 +27,7 @@ const meta = {
       description: "Child React elements",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Menubar>;
 export default meta;
 

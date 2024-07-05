@@ -18,6 +18,7 @@ const meta = {
         "Whether or not the component is purely decorative. When true, accessibility-related attributes are updated so that that the rendered element is removed from the accessibility tree.",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Separator>;
 export default meta;
 

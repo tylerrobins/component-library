@@ -24,6 +24,7 @@ const meta = {
       control: undefined,
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof ResizablePanelGroup>;
 export default meta;
 

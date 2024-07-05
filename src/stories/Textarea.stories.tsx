@@ -13,6 +13,7 @@ const meta = {
     id: { control: "text" },
     disabled: { control: "boolean" },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Textarea>;
 export default meta;
 

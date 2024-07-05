@@ -11,8 +11,8 @@ const meta = {
   title: "BlackBox/Tooltip",
   component: TooltipProvider,
   parameters: { layout: "centered" },
-  tags: ["autodocs"],
   argTypes: { children: { control: undefined } },
+  tags: ["autodocs"],
 } satisfies Meta<typeof TooltipProvider>;
 export default meta;
 

@@ -18,6 +18,7 @@ const meta = {
   component: Sheet,
   parameters: { layout: "centered" },
   argTypes: { children: { control: undefined } },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Sheet>;
 export default meta;
 

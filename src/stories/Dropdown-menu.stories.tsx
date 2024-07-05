@@ -48,6 +48,7 @@ const meta = {
       description: "ReactNode children of DropdownMenu",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof DropdownMenu>;
 export default meta;
 

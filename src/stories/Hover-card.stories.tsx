@@ -20,6 +20,7 @@ const meta = {
       description: "ReactNode for the HoverCard children",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof HoverCard>;
 export default meta;
 

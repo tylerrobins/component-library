@@ -21,6 +21,7 @@ const meta = {
     defaultValue: { control: "text" },
     children: { control: undefined },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Tabs>;
 export default meta;
 

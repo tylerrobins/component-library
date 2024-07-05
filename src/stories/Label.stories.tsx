@@ -16,6 +16,7 @@ const meta = {
     children: { control: "text", description: "Label text" },
     className: { control: "text" },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Label>;
 export default meta;
 

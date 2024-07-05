@@ -5,7 +5,6 @@ const meta = {
   title: "BlackBox/Toggle",
   component: Toggle,
   parameters: { layout: "centered" },
-  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "select",
@@ -20,6 +19,7 @@ const meta = {
       description: "Toggle label",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Toggle>;
 export default meta;
 

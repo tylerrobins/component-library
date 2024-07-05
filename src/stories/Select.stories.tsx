@@ -34,6 +34,7 @@ const meta = {
   argTypes: {
     children: { control: undefined },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Select>;
 export default meta;
 

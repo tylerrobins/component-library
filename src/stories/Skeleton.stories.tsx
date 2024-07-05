@@ -5,6 +5,7 @@ const meta = {
   title: "BlackBox/Skeleton",
   component: Skeleton,
   parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Skeleton>;
 export default meta;
 

@@ -42,6 +42,7 @@ const meta = {
         "How much time a user has to enter another trigger without incurring a delay again. @defaultValue 300",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof NavigationMenu>;
 export default meta;
 

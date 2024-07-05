@@ -8,6 +8,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Progress>;
 export default meta;
 

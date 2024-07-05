@@ -69,6 +69,7 @@ const meta = {
       description: "Disables the input field",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Input>;
 export default meta;
 

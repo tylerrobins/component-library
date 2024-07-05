@@ -14,6 +14,7 @@ const meta = {
       control: undefined,
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof ScrollArea>;
 export default meta;
 

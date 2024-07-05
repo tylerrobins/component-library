@@ -5,7 +5,6 @@ const meta = {
   title: "BlackBox/ToggleGroup",
   component: ToggleGroup,
   parameters: { layout: "centered" },
-  tags: ["autodocs"],
   argTypes: {
     type: {
       control: "select",
@@ -24,6 +23,7 @@ const meta = {
       description: "Toggle label",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof ToggleGroup>;
 export default meta;
 

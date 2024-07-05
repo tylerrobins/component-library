@@ -14,6 +14,7 @@ const meta = {
   title: "BlackBox/Table",
   component: Table,
   parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Table>;
 export default meta;
 

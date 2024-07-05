@@ -34,6 +34,7 @@ const meta = {
       control: "boolean",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Slider>;
 export default meta;
 
