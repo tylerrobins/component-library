@@ -469,6 +469,28 @@ video {
   --radius: 0.5rem;
 }
 
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
 * {
   border-color: hsl(var(--border));
 }
@@ -805,6 +827,16 @@ body {
   margin-bottom: 0.25rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .-ml-4 {
   margin-left: -1rem;
 }
@@ -904,6 +936,10 @@ body {
   aspect-ratio: 1 / 1;
 }
 
+.aspect-\[3\/4\] {
+  aspect-ratio: 3/4;
+}
+
 .h-1 {
   height: 0.25rem;
 }
@@ -998,6 +1034,15 @@ body {
 
 .h-\[200px\] {
   height: 200px;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.h-72 {
+  height: 18rem;
 }
 
 .max-h-96 {
@@ -1171,6 +1216,19 @@ body {
 
 .w-\[60\%\] {
   width: 60%;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-\[180px\] {
+  width: 180px;
 }
 
 .min-w-0 {
@@ -1669,6 +1727,11 @@ body {
 
 .fill-current {
   fill: currentColor;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-0 {
