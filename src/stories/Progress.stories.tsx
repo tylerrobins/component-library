@@ -14,14 +14,17 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => (
-    <div style={{ width: "400px" }}>
-      <Progress value={33} />
-    </div>
-  ),
+  render: () => <Progress value={33} />,
+  decorators: [
+    (Story) => (
+      <div style={{ width: "400px" }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
-export function ProgressDemo() {
+function ProgressDemo() {
   const [progress, setProgress] = React.useState(13);
 
   React.useEffect(() => {
@@ -29,9 +32,16 @@ export function ProgressDemo() {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <div style={{ width: "500px" }}>
-      <Progress value={progress} className="w-[60%]" />
-    </div>
-  );
+  return <Progress value={progress} className="w-[60%]" />;
 }
+
+export const DemoProgress: Story = {
+  render: () => <ProgressDemo />,
+  decorators: [
+    (Story) => (
+      <div style={{ width: "500px" }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
