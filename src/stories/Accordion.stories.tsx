@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/Accordion/index.ts";
+} from "@/components/ui/Accordion/index";
 
 const meta = {
   title: "BlackBox/Accordion",
