@@ -1,14 +1,23 @@
 {
   "name": "@tylerrobins/accordion",
   "version": "1.0.0",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
-    "lucide-react": "^0.400.0"
+    "@tylerrobins/lib-utils": "^1.0.0",
+    "lucide-react": "^0.400.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.19.0"
   }
 }
