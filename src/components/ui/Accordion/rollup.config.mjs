@@ -4,11 +4,15 @@ import typescript from '@rollup/plugin-typescript';
 
 export default {
     input: 'index.tsx',
-    output: {
+    output: [{
         file: 'dist/index.js',
         format: 'cjs',
         sourcemap: true,
-    },
+    }, {
+        file: 'dist/index.mjs',
+        format: 'es',
+        sourcemap: true,
+    }],
     plugins: [
         resolve(),
         commonjs(),
