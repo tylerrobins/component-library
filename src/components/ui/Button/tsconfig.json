@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "rootDir": ".",
+    "outDir": "./dist",
     "target": "es5",
     "module": "esnext",
     "lib": ["dom", "es2020"],
@@ -8,6 +11,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["utils.ts"],
+  "include": ["index.tsx"],
   "exclude": ["node_modules", "dist"]
 }

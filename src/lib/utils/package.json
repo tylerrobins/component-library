@@ -1,10 +1,18 @@
 {
   "name": "@tylerrobins/lib-utils",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "tsc:build": "tsc -b"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -14,6 +22,7 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
-    "rollup": "^4.19.0"
+    "rollup": "^4.19.0",
+    "typescript": "^5.5.4"
   }
 }
