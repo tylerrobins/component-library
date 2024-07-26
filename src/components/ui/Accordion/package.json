@@ -1,0 +1,14 @@
+{
+  "name": "@tylerrobins/accordion",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.0",
+    "lucide-react": "^0.400.0"
+  }
+}
