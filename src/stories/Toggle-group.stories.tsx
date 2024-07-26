@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/components/ui/Toggle-group/toggle-group";
 
 const meta = {
   title: "BlackBox/ToggleGroup",

@@ -3,10 +3,14 @@ import {
   HoverCard,
   HoverCardTrigger,
   HoverCardContent,
-} from "@/components/ui/hover-card";
+} from "@/components/ui/Hover-card/hover-card";
 import { CalendarDays } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/Avatar/avatar";
+import { Button } from "@/components/ui/Button/button";
 
 const meta = {
   title: "BlackBox/HoverCard",

@@ -3,7 +3,7 @@ import {
   ResizablePanelGroup,
   ResizablePanel,
   ResizableHandle,
-} from "@/components/ui/resizable";
+} from "@/components/ui/Resizable/resizable";
 
 const meta = {
   title: "BlackBox/ResizablePanel",

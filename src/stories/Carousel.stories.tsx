@@ -5,7 +5,7 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from "@/components/ui/carousel";
+} from "@/components/ui/Carousel/carousel";
 
 const meta = {
   title: "BlackBox/Carousel",

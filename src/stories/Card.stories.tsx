@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button/button";
 import {
   Card,
   CardContent,
@@ -7,18 +7,18 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/Card/card";
+import { Input } from "@/components/ui/Input/input";
+import { Label } from "@/components/ui/Label/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/Select/select";
 import { BellIcon, CheckIcon } from "@radix-ui/react-icons";
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@/components/ui/Switch/switch";
 
 const meta = {
   title: "BlackBox/Card",

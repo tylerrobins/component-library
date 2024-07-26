@@ -11,8 +11,8 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/Drawer/drawer";
+import { Button } from "@/components/ui/Button/button";
 
 const meta = {
   title: "BlackBox/Drawer",

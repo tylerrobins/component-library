@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { ToastAction } from "@/components/ui/toast";
+import { Button } from "@/components/ui/Button/button";
+import { ToastAction } from "@/components/ui/Toast/toast";
 import { useToast } from "@/components/ui/use-toast";
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "@/components/ui/Progress/progress";
 
 export function ToastWithAction() {
   const { toast } = useToast();

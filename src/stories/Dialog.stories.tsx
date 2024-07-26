@@ -9,10 +9,10 @@ import {
   DialogTrigger,
   DialogFooter,
   DialogClose,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/Dialog/dialog";
+import { Button } from "@/components/ui/Button/button";
+import { Input } from "@/components/ui/Input/input";
+import { Label } from "@/components/ui/Label/label";
 
 const meta = {
   title: "BlackBox/Dialog",

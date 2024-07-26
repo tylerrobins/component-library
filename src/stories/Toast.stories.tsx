@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useToast } from "@/components/ui/use-toast";
-import { ToastAction } from "@/components/ui/toast";
-import { Button } from "@/components/ui/button";
+import { ToastAction } from "@/components/ui/Toast/toast";
+import { Button } from "@/components/ui/Button/button";
 import { withToastProvider } from "@/stories/helpers/withToastProvider";
 
 const meta = {

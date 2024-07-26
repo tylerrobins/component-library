@@ -4,8 +4,8 @@ import { format } from "date-fns";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar, CalendarProps } from "@/components/ui/calendar";
+import { Button } from "@/components/ui/Button/button";
+import { Calendar, CalendarProps } from "@/components/ui/Calendar/calendar";
 import {
   Form,
   FormControl,
@@ -14,12 +14,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/components/ui/Form/form";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/components/ui/Popover/popover";
 import { toast } from "@/components/ui/use-toast";
 
 // Define the form schema using zod

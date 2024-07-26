@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Switch } from "@/components/ui/switch";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/Switch/switch";
+import { Button } from "@/components/ui/Button/button";
+import { Label } from "@/components/ui/Label/label";
 import {
   Form,
   FormControl,
@@ -9,7 +9,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-} from "@/components/ui/form";
+} from "@/components/ui/Form/form";
 import { toast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";

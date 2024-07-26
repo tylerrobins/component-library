@@ -7,12 +7,12 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/Select/select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button/button";
 import {
   Form,
   FormControl,
@@ -21,7 +21,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/components/ui/Form/form";
 import { toast } from "@/components/ui/use-toast";
 import { withToastProvider } from "./helpers/withToastProvider";
 

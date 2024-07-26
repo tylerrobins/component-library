@@ -13,7 +13,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/ui/context-menu";
+} from "@/components/ui/Context-menu/context-menu";
 
 const meta = {
   title: "Blackbox/ContextMenu",

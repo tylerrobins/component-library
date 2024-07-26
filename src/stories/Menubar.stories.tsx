@@ -13,7 +13,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "@/components/ui/Menubar/menubar";
 
 const meta = {
   title: "BlackBox/Menubar",

@@ -7,13 +7,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
-} from "@/components/ui/breadcrumb";
+} from "@/components/ui/Breadcrumb/breadcrumb";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/Dropdown-menu/dropdown-menu";
 
 const meta = {
   title: "BlackBox/Breadcrumb",

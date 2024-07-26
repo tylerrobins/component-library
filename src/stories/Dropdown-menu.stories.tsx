@@ -17,8 +17,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuPortal,
   DropdownMenuSubContent,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/Dropdown-menu/dropdown-menu";
+import { Button } from "@/components/ui/Button/button";
 import {
   Cloud,
   CreditCard,

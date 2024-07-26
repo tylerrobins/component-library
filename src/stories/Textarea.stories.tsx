@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/Textarea/textarea";
+import { Label } from "@/components/ui/Label/label";
+import { Button } from "@/components/ui/Button/button";
 
 const meta = {
   title: "BlackBox/Textarea",

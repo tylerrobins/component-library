@@ -8,10 +8,10 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/Sheet/sheet";
+import { Button } from "@/components/ui/Button/button";
+import { Input } from "@/components/ui/Input/input";
+import { Label } from "@/components/ui/Label/label";
 
 const meta = {
   title: "BlackBox/Sheet",

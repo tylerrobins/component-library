@@ -3,10 +3,10 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/Popover/popover";
+import { Button } from "@/components/ui/Button/button";
+import { Input } from "@/components/ui/Input/input";
+import { Label } from "@/components/ui/Label/label";
 
 const meta = {
   title: "BlackBox/Popover",

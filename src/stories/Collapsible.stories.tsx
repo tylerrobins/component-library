@@ -4,8 +4,8 @@ import {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
-} from "@/components/ui/collapsible";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/Collapsible/collapsible";
+import { Button } from "@/components/ui/Button/button";
 import { CaretSortIcon } from "@radix-ui/react-icons";
 
 const meta = {

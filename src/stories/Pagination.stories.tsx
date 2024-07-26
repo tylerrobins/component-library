@@ -7,7 +7,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@/components/ui/Pagination/pagination";
 
 const meta = {
   title: "BlackBox/Pagination",

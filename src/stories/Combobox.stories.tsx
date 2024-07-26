@@ -6,7 +6,7 @@ import {
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button/button";
 import {
   Command,
   CommandEmpty,
@@ -14,12 +14,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/command";
+} from "@/components/ui/Command/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/components/ui/Popover/popover";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,8 +32,12 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+} from "@/components/ui/Dropdown-menu/dropdown-menu";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/Drawer/drawer";
 import useMediaQuery from "@/hooks/use-media-query";
 
 const meta = {
