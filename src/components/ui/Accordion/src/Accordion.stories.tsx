@@ -4,7 +4,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/Accordion/src";
+} from "./Accordion";
+import React from "react";
 
 const meta = {
   title: "BlackBox/Accordion",
