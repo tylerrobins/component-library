@@ -23,7 +23,7 @@ import {
   FormMessage,
 } from "@/components/ui/Form/form";
 import { toast } from "@/components/ui/use-toast";
-import { withToastProvider } from "./helpers/withToastProvider";
+import { withToastProvider } from "../../../../stories/helpers/withToastProvider";
 
 const meta = {
   title: "BlackBox/Select",
