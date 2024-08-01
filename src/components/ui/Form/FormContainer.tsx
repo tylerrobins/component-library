@@ -3,24 +3,23 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/primatives/Button/src";
-import {
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-} from "@/components/primatives/Form/src";
-import { Input } from "@/components/primatives/Input/src";
+import { Form } from "@/components/primatives/FormPrimative/src";
+import { FormTextInput } from "./FormTextInput";
+import { cn } from "@/lib/utils/index";
 
-export function FormContainer({ children }: { children: React.ReactNode }) {
+export function FormContainer({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
   const buildSchema = () => {
     const shape: Record<string, z.ZodString> = {};
     const defValues: Record<string, string> = {};
 
     React.Children.map(children, (child) => {
-      if (React.isValidElement(child) && child.type === FormInput) {
+      if (React.isValidElement(child) && child.type === FormTextInput) {
         const { name, defVal } = child.props;
         shape[name] = z.string().min(2, {
           message: `${name} must be at least 2 characters`,
@@ -44,40 +43,13 @@ export function FormContainer({ children }: { children: React.ReactNode }) {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className={cn("space-y-4 px-4", className)}
+      >
         {children}
         <Button type="submit">Submit</Button>
       </form>
     </Form>
-  );
-}
-
-type FormInputProps = {
-  name: string;
-  label?: string | null;
-  placeholder?: string | undefined;
-  description?: string | null;
-};
-
-export function FormInput({
-  name,
-  label,
-  placeholder,
-  description,
-}: FormInputProps) {
-  return (
-    <FormField
-      name={name}
-      render={({ field }) => (
-        <FormItem>
-          {label && <FormLabel>{label}</FormLabel>}
-          <FormControl>
-            <Input placeholder={placeholder} {...field} />
-          </FormControl>
-          {description && <FormDescription>{description}</FormDescription>}
-          <FormMessage />
-        </FormItem>
-      )}
-    />
   );
 }
