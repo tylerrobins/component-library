@@ -30,7 +30,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/Select/select";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/primatives/use-toast";
 
 const meta = {
   title: "BlackBox/DatePicker",

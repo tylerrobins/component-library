@@ -20,7 +20,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/Popover/popover";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/primatives/use-toast";
 
 // Define the form schema using zod
 const FormSchema = z.object({

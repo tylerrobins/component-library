@@ -13,7 +13,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/Form/form";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/primatives/use-toast";
 
 const FormSchemaSingle = z.object({
   mobile: z.boolean().default(false).optional(),
