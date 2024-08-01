@@ -53,3 +53,61 @@ export function FormContainer({
     </Form>
   );
 }
+
+type TextInputPropsBase = {
+  max?: number;
+  min?: number;
+  length?: number;
+  email?: boolean;
+  url?: boolean;
+  uuid?: boolean;
+  regex?: RegExp;
+  includes?: string;
+  startsWith?: string;
+  endsWith?: string;
+};
+
+// NEEDS TO BE REVIEWED TO ENSURE THE GENERIC IMPLEMENTATION IS CORRECT.
+type RequireMessageField<
+  T extends Record<string, number | boolean | RegExp | string>,
+> = {
+  [K in keyof T as `${K & string}Message`]?: T[K] extends
+    | undefined
+    | null
+    | never
+    ? never
+    : string;
+} & {
+  [K in keyof T]: T[K];
+} & {
+  [K in keyof T as `${K & string}Message`]?: K extends keyof T
+    ? T[K] extends undefined
+      ? never
+      : string
+    : never;
+};
+
+type TextInputProps = RequireMessageField<TextInputPropsBase>;
+
+function handleTextInput({
+  max,
+  maxMessage,
+  min,
+  minMessage,
+  length,
+  lengthMessage,
+  email,
+  emailMessage,
+  url,
+  urlMessage,
+  uuid,
+  uuidMessage,
+  regex,
+  regexMessage,
+  includes,
+  includesMessage,
+  startsWith,
+  startsWithMessage,
+  endsWith,
+  endsWithMessage,
+}: TextInputProps);
