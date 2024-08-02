@@ -21,6 +21,13 @@ export function AccessibleForm() {
         maxMessage="This is the max message"
       />
       <FormTextInput
+        name="max-required"
+        label="Max Require"
+        placeholder="Max of 5"
+        max={5}
+        maxMessage="This is the max message"
+      />
+      <FormTextInput
         name="length"
         label="Length"
         placeholder="Length of 5"
@@ -28,7 +35,8 @@ export function AccessibleForm() {
         defaultValue="Hello"
         lengthMessage="Length must be 5"
       />
-      <FormTextInput name="test" label="Test" />
+      <FormTextInput name="test1" label="Test" required />
+      <FormTextInput name="test2" required />
     </FormContainer>
   );
 }

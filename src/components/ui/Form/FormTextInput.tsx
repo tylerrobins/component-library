@@ -7,18 +7,17 @@ import {
   FormField,
 } from "@/components/primatives/FormPrimative/src";
 import { Input } from "@/components/primatives/Input/src";
-import type { TextInputProps } from "./FormContainer";
+import type { TextInputProps } from "./Form";
 
 export type FormInputProps = {
   name: string;
-  label?: string | null;
-  placeholder?: string | undefined;
-  description?: string | null;
+  placeholder?: string;
+  description?: string;
+  required?: boolean;
 };
 
 export function FormTextInput({
   name,
-  label,
   placeholder,
   description,
   ...props
@@ -29,7 +28,7 @@ export function FormTextInput({
       {...props}
       render={({ field }) => (
         <FormItem>
-          {label && <FormLabel>{label}</FormLabel>}
+          {props.label && <FormLabel>{props.label}</FormLabel>}
           <FormControl>
             <Input placeholder={placeholder} {...field} />
           </FormControl>

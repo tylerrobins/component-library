@@ -6,6 +6,7 @@ import { Button } from "@/components/primatives/Button/src";
 import { Form } from "@/components/primatives/FormPrimative/src";
 import { FormTextInput } from "./FormTextInput";
 import { cn } from "@/lib/utils/index";
+import type { TextInputProps } from "./Form";
 
 export function FormContainer({
   className,
@@ -41,6 +42,7 @@ export function FormContainer({
   });
 
   function onSubmitHandler(values: z.infer<typeof schemaRef.current>) {
+    // Can remove the default console.log
     onSubmit ? onSubmit(values) : console.log(values);
   }
 
@@ -57,37 +59,21 @@ export function FormContainer({
   );
 }
 
-type TextInputPropsBase = {
-  name: string;
-  defaultValue?: string;
-  max?: number;
-  min?: number;
-  length?: number;
-  // uuid?: boolean;
-  regex?: RegExp;
-  includes?: string;
-  startsWith?: string;
-  endsWith?: string;
-  type?: "text" | "email" | "url";
-};
-
-// NEEDS TO BE REVIEWED TO ENSURE THE GENERIC IMPLEMENTATION IS CORRECT.
-type RequireMessageField<
-  T extends Record<string, number | boolean | RegExp | string>,
-> = {
-  [K in Exclude<
-    keyof T,
-    "name" | "type"
-  > as `${K & string}Message`]?: T[K] extends undefined | null | never
-    ? never
-    : string;
-} & T;
-
-export type TextInputProps = RequireMessageField<TextInputPropsBase>;
-
-function handleStringInput({ type = "text", ...props }: TextInputProps) {
+function handleStringInput({ ...props }: TextInputProps) {
   let zObject = z.string();
-  switch (type) {
+
+  // Set default type
+  if (!props.type) {
+    props.type = "text";
+  }
+  if (props.required) {
+    zObject = zObject.min(
+      1,
+      `${props.label ? props.label : "This field"} is required.`,
+    );
+  }
+
+  switch (props.type) {
     case "text":
       if (props.max) {
         zObject = zObject.max(props.max, {
@@ -118,8 +104,6 @@ function handleStringInput({ type = "text", ...props }: TextInputProps) {
     default:
       console.error("Something has gone wrong with type property");
   }
-
-  console.log(zObject);
-
+  console.log(`zObject:${JSON.stringify(zObject)}`);
   return zObject;
 }
