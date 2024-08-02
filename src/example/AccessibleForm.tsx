@@ -1,4 +1,5 @@
 import { FormContainer, FormTextInput } from "@/components/ui/Form";
+import { FormDatePickerInput } from "@/components/ui/Form/FormDatePicker";
 
 export function AccessibleForm() {
   return (
@@ -26,7 +27,7 @@ export function AccessibleForm() {
         placeholder="Max of 5"
         max={5}
         maxMessage="This is the max message"
-        required
+        // required
       />
       <FormTextInput
         name="length"
@@ -36,11 +37,12 @@ export function AccessibleForm() {
         defaultValue="Hello"
         lengthMessage="Length must be 5"
       />
+      <FormDatePickerInput name={"date"} />
       <FormTextInput name="test1" label="Test" />
       <FormTextInput
-        className="text-green-600 border-4 border-red-500"
+        className="text-green-800 bg-red-300"
         name="test2"
-        required
+        // required
       />
     </FormContainer>
   );

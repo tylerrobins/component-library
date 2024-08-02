@@ -11,7 +11,7 @@ import type { TextInputProps } from "./Form";
 import { cn } from "@/lib/utils/index";
 
 export type FormInputProps = {
-  className: string;
+  className?: string;
   name: string;
   placeholder?: string;
   description?: string;
