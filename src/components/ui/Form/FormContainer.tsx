@@ -31,7 +31,6 @@ export function FormContainer({
         defaultValues[name] = child.props.defaultValue || "";
       }
     });
-
     schemaRef.current = z.object(shape);
     defaultValuesRef.current = defaultValues;
   }
@@ -66,6 +65,7 @@ function handleStringInput({ ...props }: TextInputProps) {
   if (!props.type) {
     props.type = "text";
   }
+  // Set required
   if (props.required) {
     zObject = zObject.min(
       1,
@@ -104,6 +104,5 @@ function handleStringInput({ ...props }: TextInputProps) {
     default:
       console.error("Something has gone wrong with type property");
   }
-  console.log(`zObject:${JSON.stringify(zObject)}`);
   return zObject;
 }

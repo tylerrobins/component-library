@@ -15,7 +15,6 @@ export type FormInputProps = {
   name: string;
   placeholder?: string;
   description?: string;
-  required?: boolean;
 };
 
 export function FormTextInput({
@@ -35,7 +34,11 @@ export function FormTextInput({
           {props.label && <FormLabel>{props.label}</FormLabel>}
           {/* Currently applied at control level as the label can be customised from the container level */}
           <FormControl className={cn("", className)}>
-            <Input placeholder={placeholder} {...field} />
+            <Input
+              placeholder={placeholder}
+              {...field}
+              aria-required={props.required ? "true" : "false"}
+            />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
