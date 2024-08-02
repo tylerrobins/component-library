@@ -36,7 +36,11 @@ export function AccessibleForm() {
         lengthMessage="Length must be 5"
       />
       <FormTextInput name="test1" label="Test" required />
-      <FormTextInput name="test2" required />
+      <FormTextInput
+        className="text-green-600 border-4 border-red-500"
+        name="test2"
+        required
+      />
     </FormContainer>
   );
 }
