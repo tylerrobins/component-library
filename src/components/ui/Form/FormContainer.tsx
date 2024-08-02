@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -14,33 +14,34 @@ export function FormContainer({
   className?: string;
   children: React.ReactNode;
 }) {
-  const buildSchema = () => {
-    const shape: Record<string, z.ZodString> = {};
-    const defValues: Record<string, string> = {};
+  const schemaRef = useRef<z.ZodObject<any>>(undefined!); // eslint-disable-line @typescript-eslint/no-explicit-any
+  const defaultValuesRef = useRef<Record<string, string>>({});
 
-    React.Children.map(children, (child) => {
+  if (!schemaRef.current) {
+    const shape: Record<string, z.ZodString> = {};
+    const defaultValues: Record<string, string> = {};
+
+    React.Children.forEach(children, (child) => {
       if (React.isValidElement(child) && child.type === FormTextInput) {
-        const { name, defVal } = child.props;
-        shape[name] = z.string().min(2, {
-          message: `${name} must be at least 2 characters`,
-        });
-        defValues[name] = defVal;
+        const { name } = child.props;
+        shape[name] = handleStringInput(child.props);
+        defaultValues[name] = child.props.defaultValue || "";
       }
     });
-    const schema = z.object(shape);
-    return { schema, defValues };
-  };
 
-  const { schema, defValues } = buildSchema();
+    schemaRef.current = z.object(shape);
+    defaultValuesRef.current = defaultValues;
+  }
 
-  const form = useForm<z.infer<typeof schema>>({
-    resolver: zodResolver(schema),
-    defaultValues: defValues,
+  const form = useForm({
+    resolver: zodResolver(schemaRef.current),
+    defaultValues: defaultValuesRef.current,
   });
 
-  function onSubmit(values: z.infer<typeof schema>) {
+  function onSubmit(values: z.infer<typeof schemaRef.current>) {
     console.log(values);
   }
+
   return (
     <Form {...form}>
       <form
@@ -55,6 +56,8 @@ export function FormContainer({
 }
 
 type TextInputPropsBase = {
+  name: string;
+  defaultValue?: string;
   max?: number;
   min?: number;
   length?: number;
@@ -71,43 +74,39 @@ type TextInputPropsBase = {
 type RequireMessageField<
   T extends Record<string, number | boolean | RegExp | string>,
 > = {
-  [K in keyof T as `${K & string}Message`]?: T[K] extends
+  [K in Exclude<keyof T, "name"> as `${K & string}Message`]?: T[K] extends
     | undefined
     | null
     | never
     ? never
     : string;
-} & {
-  [K in keyof T]: T[K];
-} & {
-  [K in keyof T as `${K & string}Message`]?: K extends keyof T
-    ? T[K] extends undefined
-      ? never
-      : string
-    : never;
-};
+} & T;
 
-type TextInputProps = RequireMessageField<TextInputPropsBase>;
+export type TextInputProps = RequireMessageField<TextInputPropsBase>;
 
-function handleTextInput({
-  max,
-  maxMessage,
-  min,
-  minMessage,
-  length,
-  lengthMessage,
-  email,
-  emailMessage,
-  url,
-  urlMessage,
-  uuid,
-  uuidMessage,
-  regex,
-  regexMessage,
-  includes,
-  includesMessage,
-  startsWith,
-  startsWithMessage,
-  endsWith,
-  endsWithMessage,
-}: TextInputProps);
+function handleStringInput({ ...props }: TextInputProps) {
+  let zObject = z.string();
+  if (props.max) {
+    zObject = zObject.max(props.max, {
+      message:
+        props.maxMessage || `${props.name} must be atleast ${props.max} long.`,
+    });
+  }
+  if (props.min) {
+    zObject = zObject.min(props.min, {
+      message:
+        props.minMessage ||
+        `Please ensure that the input is less than ${props.min} in length`,
+    });
+  }
+  if (props.length) {
+    zObject = zObject.length(props.length, {
+      message:
+        props.lengthMessage ||
+        `Please ensure that the input is ${props.length} in length`,
+    });
+  }
+  console.log(zObject);
+
+  return zObject;
+}
