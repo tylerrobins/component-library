@@ -9,9 +9,11 @@ import { cn } from "@/lib/utils/index";
 
 export function FormContainer({
   className,
+  onSubmit,
   children,
 }: {
   className?: string;
+  onSubmit?: (values: unknown) => void;
   children: React.ReactNode;
 }) {
   const schemaRef = useRef<z.ZodObject<any>>(undefined!); // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -38,15 +40,15 @@ export function FormContainer({
     defaultValues: defaultValuesRef.current,
   });
 
-  function onSubmit(values: z.infer<typeof schemaRef.current>) {
-    console.log(values);
+  function onSubmitHandler(values: z.infer<typeof schemaRef.current>) {
+    onSubmit ? onSubmit(values) : console.log(values);
   }
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className={cn("space-y-4 px-4", className)}
+        onSubmit={form.handleSubmit(onSubmitHandler)}
+        className={cn("space-y-4 p-8", className)}
       >
         {children}
         <Button type="submit">Submit</Button>
@@ -61,51 +63,62 @@ type TextInputPropsBase = {
   max?: number;
   min?: number;
   length?: number;
-  email?: boolean;
-  url?: boolean;
-  uuid?: boolean;
+  // uuid?: boolean;
   regex?: RegExp;
   includes?: string;
   startsWith?: string;
   endsWith?: string;
+  type?: "text" | "email" | "url";
 };
 
 // NEEDS TO BE REVIEWED TO ENSURE THE GENERIC IMPLEMENTATION IS CORRECT.
 type RequireMessageField<
   T extends Record<string, number | boolean | RegExp | string>,
 > = {
-  [K in Exclude<keyof T, "name"> as `${K & string}Message`]?: T[K] extends
-    | undefined
-    | null
-    | never
+  [K in Exclude<
+    keyof T,
+    "name" | "type"
+  > as `${K & string}Message`]?: T[K] extends undefined | null | never
     ? never
     : string;
 } & T;
 
 export type TextInputProps = RequireMessageField<TextInputPropsBase>;
 
-function handleStringInput({ ...props }: TextInputProps) {
+function handleStringInput({ type = "text", ...props }: TextInputProps) {
   let zObject = z.string();
-  if (props.max) {
-    zObject = zObject.max(props.max, {
-      message:
-        props.maxMessage || `${props.name} must be atleast ${props.max} long.`,
-    });
+  switch (type) {
+    case "text":
+      if (props.max) {
+        zObject = zObject.max(props.max, {
+          message:
+            props.maxMessage ||
+            `${props.name} must be atleast ${props.max} long.`,
+        });
+      }
+      if (props.min) {
+        zObject = zObject.min(props.min, {
+          message:
+            props.minMessage ||
+            `Please ensure that the input is less than ${props.min} in length`,
+        });
+      }
+      if (props.length) {
+        zObject = zObject.length(props.length, {
+          message:
+            props.lengthMessage ||
+            `Please ensure that the input is ${props.length} in length`,
+        });
+      }
+      break;
+    case "email":
+      break;
+    case "url":
+      break;
+    default:
+      console.error("Something has gone wrong with type property");
   }
-  if (props.min) {
-    zObject = zObject.min(props.min, {
-      message:
-        props.minMessage ||
-        `Please ensure that the input is less than ${props.min} in length`,
-    });
-  }
-  if (props.length) {
-    zObject = zObject.length(props.length, {
-      message:
-        props.lengthMessage ||
-        `Please ensure that the input is ${props.length} in length`,
-    });
-  }
+
   console.log(zObject);
 
   return zObject;

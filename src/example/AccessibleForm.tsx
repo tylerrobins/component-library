@@ -2,7 +2,10 @@ import { FormContainer, FormTextInput } from "@/components/ui/Form";
 
 export function AccessibleForm() {
   return (
-    <FormContainer className="bg-gray-200 w-[50%]">
+    <FormContainer
+      onSubmit={(e) => console.log(`This works: ${JSON.stringify(e)}`)}
+      className="bg-gray-200 w-[50%] rounded-md m-10"
+    >
       <FormTextInput
         name="min"
         label="Min"
