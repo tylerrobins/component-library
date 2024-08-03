@@ -19,6 +19,18 @@ export function FormDatePickerInput({
   alignPopout?: "start" | "center" | "end";
 }) {
   return (
+    // FormField uses FormFieldContext.Provider which only has - value={{ name: props.name }}
+
+    // FormFieldContext just creates context:
+    //   React.createContext<FormFieldContextValue>({} as FormFieldContextValue)
+
+    // Provider takes in a generic and a child only:
+    //   interface ProviderProps<T> {
+    //     value: T;
+    //     children?: ReactNode | undefined;
+    //   }
+
+    // Not sure if I should be creating a wrapper of React.createContext?
     <Controller
       name={name}
       render={({ field: { onChange, value } }) => (
