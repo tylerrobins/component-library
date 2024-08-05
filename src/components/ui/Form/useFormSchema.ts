@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { z, ZodDate, ZodNullable } from "zod";
-import { FormTextInput, FormDatePickerInput } from "../Form";
+import { z, ZodDate } from "zod";
+import { FormTextInput, FormDatePickerInput, FormSwitchInput } from "../Form";
 import type { TextInputProps } from "./Form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,20 +12,47 @@ export function useFormSchema(children: React.ReactNode) {
   if (!schemaRef.current) {
     const shape: Record<
       string,
-      z.ZodString | z.ZodDate | ZodNullable<ZodDate>
+      | z.ZodString
+      | z.ZodDate
+      | z.ZodNullable<ZodDate>
+      | z.ZodBoolean
+      | z.ZodLiteral<true>
+      | z.ZodUnion<[ZodDate, z.ZodString]>
     > = {};
     const defaultValues: Record<string, string> = {};
 
     React.Children.forEach(children, (child) => {
       if (React.isValidElement(child)) {
-        if (child.type === FormTextInput) {
-          const { name } = child.props;
-          shape[name] = handleStringInput(child.props);
-          defaultValues[name] = child.props.defaultValue || "";
-        }
-        if (child.type === FormDatePickerInput) {
-          const { name } = child.props;
-          shape[name] = z.date().nullable();
+        switch (child.type) {
+          case FormTextInput:
+            {
+              const { name } = child.props;
+              shape[name] = handleStringInput(child.props);
+              defaultValues[name] = child.props.defaultValue || "";
+            }
+            break;
+          case FormDatePickerInput:
+            {
+              const { name } = child.props;
+              shape[name] = handleDatePickerInput(child.props);
+              defaultValues[name] = child.props.defaultValue || "";
+            }
+            break;
+          case FormSwitchInput:
+            {
+              const { name } = child.props;
+              child.props.required
+                ? (shape[name] = z.literal(true, {
+                    errorMap: () => ({
+                      message: child.props.message
+                        ? child.props.message
+                        : "This is required",
+                    }),
+                  }))
+                : (shape[name] = z.boolean());
+              defaultValues[name] = child.props.defaultValue || false;
+            }
+            break;
         }
       }
     });
@@ -87,6 +114,20 @@ function handleStringInput({ ...props }: TextInputProps) {
       break;
     default:
       console.error("Something has gone wrong with type property");
+  }
+  return zObject;
+}
+
+function handleDatePickerInput({ ...props }) {
+  let zObject;
+  if (props.required) {
+    zObject = z
+      .date({
+        message: props.message ? props.message : "A date is required",
+      })
+      .nullable();
+  } else {
+    zObject = z.union([z.date({ message: "This is the message" }), z.string()]);
   }
   return zObject;
 }

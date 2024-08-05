@@ -10,20 +10,14 @@ import { Input } from "@/components/primatives/Input/src";
 import type { TextInputProps } from "./Form";
 import { cn } from "@/lib/utils/index";
 
-export type FormInputProps = {
-  className?: string;
-  name: string;
-  placeholder?: string;
-  description?: string;
-};
-
 export function FormTextInput({
   className,
   name,
   placeholder,
   description,
+  label,
   ...props
-}: FormInputProps & TextInputProps) {
+}: TextInputProps) {
   return (
     <FormField
       name={name}
@@ -31,7 +25,7 @@ export function FormTextInput({
       render={({ field }) => (
         // What level do we want to apply the class to?
         <FormItem>
-          {props.label && <FormLabel>{props.label}</FormLabel>}
+          {label && <FormLabel>{label}</FormLabel>}
           {/* Currently applied at control level as the label can be customised from the container level */}
           <FormControl className={cn("", className)}>
             <Input

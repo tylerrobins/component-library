@@ -1,5 +1,6 @@
 import { FormContainer } from "./Form/FormContainer";
 import { FormTextInput } from "./Form/FormTextInput";
-import { FormDatePickerInput } from "./Form/FormDatePicker";
+import { FormDatePickerInput } from "./Form/FormDatePickerInput";
+import { FormSwitchInput } from "./Form/FormSwitchInput";
 
-export { FormContainer, FormTextInput, FormDatePickerInput };
+export { FormContainer, FormTextInput, FormDatePickerInput, FormSwitchInput };

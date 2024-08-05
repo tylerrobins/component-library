@@ -1,11 +1,15 @@
-import { FormContainer, FormTextInput } from "@/components/ui/Form";
-import { FormDatePickerInput } from "@/components/ui/Form/FormDatePicker";
+import {
+  FormContainer,
+  FormTextInput,
+  FormDatePickerInput,
+} from "@/components/ui/Form";
+import { FormSwitchInput } from "@/components/ui/Form/FormSwitchInput";
 
 export function AccessibleForm() {
   return (
     <FormContainer
       onSubmit={(e) => console.log(`This works: ${JSON.stringify(e)}`)}
-      className="bg-gray-200 w-[50%] rounded-md m-10"
+      className="bg-gray-100 w-[50%] rounded-md m-10"
     >
       <FormTextInput
         name="min"
@@ -20,6 +24,7 @@ export function AccessibleForm() {
         placeholder="Max of 5"
         max={5}
         maxMessage="This is the max message"
+        required
       />
       <FormTextInput
         name="max-required"
@@ -37,12 +42,19 @@ export function AccessibleForm() {
         defaultValue="Hello"
         lengthMessage="Length must be 5"
       />
-      <FormDatePickerInput name={"date"} />
-      <FormTextInput name="test1" label="Test" />
-      <FormTextInput
-        className="text-green-800 bg-red-300"
-        name="test2"
-        // required
+      <FormDatePickerInput
+        name="date"
+        label="Date field"
+        message="This Date is required !!!!"
+        description="This is the date picker"
+        required
+      />
+      <FormSwitchInput
+        name="switch"
+        label="Switch"
+        description="This is the switch test"
+        required
+        message="This field is required!!!"
       />
     </FormContainer>
   );
