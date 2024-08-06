@@ -1,6 +1,12 @@
 import React, { useRef } from "react";
 import { z, ZodDate } from "zod";
-import { FormTextInput, FormDatePickerInput, FormSwitchInput } from "../Form";
+import {
+  FormTextInput,
+  FormDatePickerInput,
+  FormSwitchInput,
+  FormRadioGroupInput,
+  // FormRadioItem,
+} from "../Form";
 import type { TextInputProps } from "./Form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,36 +29,30 @@ export function useFormSchema(children: React.ReactNode) {
 
     React.Children.forEach(children, (child) => {
       if (React.isValidElement(child)) {
+        const { name } = child.props;
         switch (child.type) {
           case FormTextInput:
             {
-              const { name } = child.props;
               shape[name] = handleStringInput(child.props);
               defaultValues[name] = child.props.defaultValue || "";
             }
             break;
           case FormDatePickerInput:
             {
-              const { name } = child.props;
               shape[name] = handleDatePickerInput(child.props);
               defaultValues[name] = child.props.defaultValue || "";
             }
             break;
           case FormSwitchInput:
             {
-              const { name } = child.props;
-              child.props.required
-                ? (shape[name] = z.literal(true, {
-                    errorMap: () => ({
-                      message: child.props.message
-                        ? child.props.message
-                        : "This is required",
-                    }),
-                  }))
-                : (shape[name] = z.boolean());
+              shape[name] = handleSwitchInput(child.props);
               defaultValues[name] = child.props.defaultValue || false;
             }
             break;
+          case FormRadioGroupInput: {
+            shape[name] = handleRadioGroupInput(child.props);
+            defaultValues[name] = child.props.defaultValue || "";
+          }
         }
       }
     });
@@ -129,5 +129,29 @@ function handleDatePickerInput({ ...props }) {
   } else {
     zObject = z.union([z.date({ message: "This is the message" }), z.string()]);
   }
+  return zObject;
+}
+
+function handleSwitchInput({ ...props }) {
+  let zObject;
+  props.required
+    ? (zObject = z.literal(true, {
+        errorMap: () => ({
+          message: props.message ? props.message : "This is required",
+        }),
+      }))
+    : (zObject = z.boolean());
+  return zObject;
+}
+
+function handleRadioGroupInput({ ...props }) {
+  let zObject = z.string();
+  if (props.required) {
+    zObject = zObject.min(
+      1,
+      `${props.label ? props.label : "This field"} is required.`,
+    );
+  }
+
   return zObject;
 }

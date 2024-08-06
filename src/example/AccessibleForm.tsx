@@ -28,7 +28,7 @@ export function AccessibleForm() {
         placeholder="Max of 5"
         max={5}
         maxMessage="This is the max message"
-        required
+        // required
       />
       <FormTextInput
         name="max-required"
@@ -51,16 +51,16 @@ export function AccessibleForm() {
         label="Date field"
         message="This Date is required !!!!"
         description="This is the date picker"
-        required
+        // required
       />
       <FormSwitchInput
         name="switch"
         label="Switch"
         description="This is the switch test"
-        required
         message="This field is required!!!"
+        // required
       />
-      <FormRadioGroupInput name="name">
+      <FormRadioGroupInput name="name" required>
         <FormRadioItem name="item1" label="Item 1" />
         <FormRadioItem name="item2" label="Item 2" />
         <FormRadioItem name="item3" label="Item 3" />

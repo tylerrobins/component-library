@@ -6,12 +6,12 @@ export type StandardFormProps = {
   description?: string;
   required?: boolean;
   message?: string;
+  defaultValue?: string;
 };
 
 // Standard text inputs
 type TextInputBaseProps = {
   placeholder?: string;
-  defaultValue?: string;
   type?: "text" | "email" | "url";
 };
 // Props that require a message if give in text input
