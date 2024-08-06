@@ -3,6 +3,10 @@ import {
   FormTextInput,
   FormDatePickerInput,
 } from "@/components/ui/Form";
+import {
+  FormRadioGroupInput,
+  FormRadioItem,
+} from "@/components/ui/Form/FormRadioGroupInput";
 import { FormSwitchInput } from "@/components/ui/Form/FormSwitchInput";
 
 export function AccessibleForm() {
@@ -56,6 +60,11 @@ export function AccessibleForm() {
         required
         message="This field is required!!!"
       />
+      <FormRadioGroupInput name="name">
+        <FormRadioItem name="item1" label="Item 1" />
+        <FormRadioItem name="item2" label="Item 2" />
+        <FormRadioItem name="item3" label="Item 3" />
+      </FormRadioGroupInput>
     </FormContainer>
   );
 }

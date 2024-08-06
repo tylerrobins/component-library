@@ -7,8 +7,10 @@ import {
   FormMessage,
 } from "@/components/primatives/FormPrimative/src";
 import type { StandardFormProps } from "./Form";
-import { RadioGroup } from "@radix-ui/react-dropdown-menu";
-import { RadioGroupItem } from "@radix-ui/react-radio-group";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/components/primatives/Radio-group/src";
 import { cn } from "@/lib/utils/index";
 
 export function FormRadioGroupInput({
@@ -20,7 +22,7 @@ export function FormRadioGroupInput({
   children,
   ...props
 }: StandardFormProps & {
-  orientation: "horizontal" | "vertical";
+  orientation?: "horizontal" | "vertical";
   children: React.ReactNode;
 }) {
   return (
@@ -53,13 +55,17 @@ export function FormRadioItem({
   label,
   description,
 }: StandardFormProps & { label: string }) {
-  <FormItem className={cn("flex items-center space-x-3 space-y-0", className)}>
-    <FormControl>
-      <RadioGroupItem value={name} />
-    </FormControl>
-    <FormLabel className="font-normal">{label}</FormLabel>
-    {description && <FormDescription>{description}</FormDescription>}
-  </FormItem>;
+  return (
+    <FormItem
+      className={cn("flex items-center space-x-3 space-y-0", className)}
+    >
+      <FormControl>
+        <RadioGroupItem value={name} />
+      </FormControl>
+      <FormLabel className="font-normal">{label}</FormLabel>
+      {description && <FormDescription>{description}</FormDescription>}
+    </FormItem>
+  );
 }
 
 function orientationStyleFunc(orientation: string): string {
