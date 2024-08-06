@@ -109,8 +109,10 @@ function handleStringInput({ ...props }: TextInputProps) {
       }
       break;
     case "email":
+      zObject = zObject.email();
       break;
     case "url":
+      zObject = zObject.url();
       break;
     default:
       console.error("Something has gone wrong with type property");

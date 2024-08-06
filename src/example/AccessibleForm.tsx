@@ -31,12 +31,11 @@ export function AccessibleForm() {
         // required
       />
       <FormTextInput
-        name="max-required"
-        label="Max Require"
-        placeholder="Max of 5"
-        max={5}
-        maxMessage="This is the max message"
-        // required
+        name="email"
+        label="Email"
+        type="email"
+        placeholder="email..."
+        required
       />
       <FormTextInput
         name="length"
