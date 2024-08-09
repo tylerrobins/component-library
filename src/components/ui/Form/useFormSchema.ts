@@ -6,6 +6,7 @@ import {
   FormSwitchInput,
   FormRadioGroupInput,
   // FormRadioItem,
+  FormCheckboxInput,
 } from "../Form";
 import type { TextInputProps } from "./Form";
 import { useForm } from "react-hook-form";
@@ -45,14 +46,22 @@ export function useFormSchema(children: React.ReactNode) {
             break;
           case FormSwitchInput:
             {
-              shape[name] = handleSwitchInput(child.props);
+              shape[name] = handleBooleanInput(child.props);
               defaultValues[name] = child.props.defaultValue || false;
             }
             break;
-          case FormRadioGroupInput: {
-            shape[name] = handleRadioGroupInput(child.props);
-            defaultValues[name] = child.props.defaultValue || "";
-          }
+          case FormRadioGroupInput:
+            {
+              shape[name] = handleRadioGroupInput(child.props);
+              defaultValues[name] = child.props.defaultValue || "";
+            }
+            break;
+          case FormCheckboxInput:
+            {
+              shape[name] = handleBooleanInput(child.props);
+              defaultValues[name] = child.props.defaultValue || false;
+            }
+            break;
         }
       }
     });
@@ -134,7 +143,7 @@ function handleDatePickerInput({ ...props }) {
   return zObject;
 }
 
-function handleSwitchInput({ ...props }) {
+function handleBooleanInput({ ...props }) {
   let zObject;
   props.required
     ? (zObject = z.literal(true, {

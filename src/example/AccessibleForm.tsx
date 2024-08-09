@@ -2,6 +2,7 @@ import {
   FormContainer,
   FormTextInput,
   FormDatePickerInput,
+  FormCheckboxInput,
 } from "@/components/ui/Form";
 import {
   FormRadioGroupInput,
@@ -12,7 +13,7 @@ import { FormSwitchInput } from "@/components/ui/Form/FormSwitchInput";
 export function AccessibleForm() {
   return (
     <FormContainer
-      onSubmit={(e) => console.log(`This works: ${JSON.stringify(e)}`)}
+      // onSubmit={(e) => console.log(`This works: ${JSON.stringify(e)}`)}
       className="bg-gray-100 w-[50%] rounded-md m-10"
     >
       <FormTextInput
@@ -59,11 +60,13 @@ export function AccessibleForm() {
         message="This field is required!!!"
         // required
       />
-      <FormRadioGroupInput name="name" required>
+      <FormRadioGroupInput name="name" defaultValue="item3" required>
         <FormRadioItem name="item1" label="Item 1" />
         <FormRadioItem name="item2" label="Item 2" />
         <FormRadioItem name="item3" label="Item 3" />
       </FormRadioGroupInput>
+
+      <FormCheckboxInput name="checkbox" label="Checkbox for checking..." />
     </FormContainer>
   );
 }

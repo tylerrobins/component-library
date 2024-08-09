@@ -3,6 +3,7 @@ import { FormTextInput } from "./Form/FormTextInput";
 import { FormDatePickerInput } from "./Form/FormDatePickerInput";
 import { FormSwitchInput } from "./Form/FormSwitchInput";
 import { FormRadioGroupInput, FormRadioItem } from "./Form/FormRadioGroupInput";
+import { FormCheckboxInput } from "./Form/FormCheckboxInput";
 
 export {
   FormContainer,
@@ -11,4 +12,5 @@ export {
   FormSwitchInput,
   FormRadioGroupInput,
   FormRadioItem,
+  FormCheckboxInput,
 };
