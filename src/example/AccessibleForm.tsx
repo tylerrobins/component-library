@@ -3,6 +3,7 @@ import {
   FormTextInput,
   FormDatePickerInput,
   FormCheckboxInput,
+  FormComboboxInput,
 } from "@/components/ui/Form";
 import {
   FormRadioGroupInput,
@@ -67,6 +68,17 @@ export function AccessibleForm() {
       </FormRadioGroupInput>
 
       <FormCheckboxInput name="checkbox" label="Checkbox for checking..." />
+      <FormComboboxInput
+        name="combobox"
+        label="ComboBox"
+        searchable
+        combobox={[
+          { label: "value 1", value: "1" },
+          { label: "value 2", value: "2" },
+          { label: "value 3", value: "3" },
+        ]}
+        required
+      />
     </FormContainer>
   );
 }

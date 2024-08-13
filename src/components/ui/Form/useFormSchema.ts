@@ -5,8 +5,8 @@ import {
   FormDatePickerInput,
   FormSwitchInput,
   FormRadioGroupInput,
-  // FormRadioItem,
   FormCheckboxInput,
+  FormComboboxInput,
 } from "../Form";
 import type { TextInputProps } from "./Form";
 import { useForm } from "react-hook-form";
@@ -15,6 +15,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 export function useFormSchema(children: React.ReactNode) {
   const schemaRef = useRef<z.ZodObject<any>>(undefined!); // eslint-disable-line @typescript-eslint/no-explicit-any
   const defaultValuesRef = useRef<Record<string, string>>({});
+
+  console.log("USE FORM SCHEMA RUN");
 
   if (!schemaRef.current) {
     const shape: Record<
@@ -62,6 +64,10 @@ export function useFormSchema(children: React.ReactNode) {
               defaultValues[name] = child.props.defaultValue || false;
             }
             break;
+          case FormComboboxInput: {
+            shape[name] = handleStringInput(child.props);
+            defaultValues[name] = child.props.defaultValue || "";
+          }
         }
       }
     });

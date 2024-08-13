@@ -17,6 +17,7 @@ export function FormCheckboxInput({
   return (
     <FormField
       name={name}
+      //   control={form.control}
       {...props}
       render={({ field }) => (
         <FormItem>
