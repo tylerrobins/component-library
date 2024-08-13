@@ -61,7 +61,13 @@ export function AccessibleForm() {
         message="This field is required!!!"
         // required
       />
-      <FormRadioGroupInput name="name" defaultValue="item3" required>
+      <FormRadioGroupInput
+        name="name"
+        label="The radio group"
+        defaultValue="item3"
+        orientation="horizontal"
+        required
+      >
         <FormRadioItem name="item1" label="Item 1" />
         <FormRadioItem name="item2" label="Item 2" />
         <FormRadioItem name="item3" label="Item 3" />

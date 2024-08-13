@@ -56,7 +56,7 @@ export function FormComboboxInput({
                   variant="outline"
                   role="combobox"
                   className={cn(
-                    "w-[200px] justify-between",
+                    "w-[200px] justify-between !mt-0",
                     !field.value && "text-muted-foreground",
                   )}
                 >
