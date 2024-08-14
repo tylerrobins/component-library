@@ -49,7 +49,8 @@ export function useFormSchema(children: React.ReactNode) {
           case FormSwitchInput:
             {
               shape[name] = handleBooleanInput(child.props);
-              defaultValues[name] = child.props.defaultValue || false;
+              defaultValues[name] =
+                child.props.checked || child.props.defaultValue || false;
             }
             break;
           case FormRadioGroupInput:
@@ -61,7 +62,8 @@ export function useFormSchema(children: React.ReactNode) {
           case FormCheckboxInput:
             {
               shape[name] = handleBooleanInput(child.props);
-              defaultValues[name] = child.props.checked || false;
+              defaultValues[name] =
+                child.props.checked || child.props.defaultValue || false;
             }
             break;
           case FormComboboxInput: {

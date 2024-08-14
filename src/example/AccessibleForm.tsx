@@ -75,7 +75,7 @@ export function AccessibleForm() {
       <FormCheckboxInput
         name="checkbox"
         label="Checkbox for checking..."
-        // checked
+        checked
       />
       <FormComboboxInput
         name="combobox"

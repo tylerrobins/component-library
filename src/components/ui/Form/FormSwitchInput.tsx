@@ -1,4 +1,4 @@
-import type { StandardFormTypes } from "./Types/Form";
+import type { BooleanInputProps } from "./Types/Form";
 import {
   FormField,
   FormItem,
@@ -15,7 +15,7 @@ export function FormSwitchInput({
   description,
   defaultValue,
   ...props
-}: StandardFormTypes) {
+}: BooleanInputProps) {
   return (
     <FormField
       name={name}

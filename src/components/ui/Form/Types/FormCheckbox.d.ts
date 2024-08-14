@@ -1,7 +1,7 @@
 import type { StandardFormTypes } from "./FormStandardProps";
 
-type BaseCheckboxInput = {
-  checked?: true;
+type BaseBooleanInput = {
+  checked?: boolean;
 };
 
-export type CheckboxInputProps = StandardFormTypes & BaseCheckboxInput;
+export type BooleanInputProps = StandardFormTypes & BaseBooleanInput;
