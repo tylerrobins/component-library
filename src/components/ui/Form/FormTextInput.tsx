@@ -7,7 +7,7 @@ import {
   FormField,
 } from "@/components/primatives/FormPrimative/src";
 import { Input } from "@/components/primatives/Input/src";
-import type { TextInputProps } from "./Form";
+import type { TextInputProps } from "./Types/Form";
 import { cn } from "@/lib/utils/index";
 
 export function FormTextInput({

@@ -8,7 +8,7 @@ import {
   FormCheckboxInput,
   FormComboboxInput,
 } from "../Form";
-import type { TextInputProps } from "./Form";
+import type { TextInputProps } from "./Types/Form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 

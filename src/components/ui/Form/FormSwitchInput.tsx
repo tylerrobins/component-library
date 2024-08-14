@@ -1,3 +1,4 @@
+import type { StandardFormTypes } from "./Types/Form";
 import {
   FormField,
   FormItem,
@@ -7,7 +8,6 @@ import {
   FormMessage,
 } from "@/components/primatives/FormPrimative/src";
 import { Switch } from "@/components/primatives/Switch/src";
-import { StandardFormProps } from "./Form";
 
 export function FormSwitchInput({
   name,
@@ -15,7 +15,7 @@ export function FormSwitchInput({
   description,
   defaultValue,
   ...props
-}: StandardFormProps & { defaultValue?: boolean }) {
+}: StandardFormTypes) {
   return (
     <FormField
       name={name}

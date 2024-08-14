@@ -1,3 +1,4 @@
+import type { DatePickerInputProps } from "./Types/Form";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils/index";
@@ -16,15 +17,15 @@ import {
   FormLabel,
   FormDescription,
 } from "@/components/primatives/FormPrimative/src";
-import type { StandardFormProps } from "./Form";
 
 export function FormDatePickerInput({
   name,
   label,
   description,
+  placeholder,
   alignPopout,
   ...props
-}: StandardFormProps & { alignPopout?: "start" | "center" | "end" }) {
+}: DatePickerInputProps) {
   return (
     <FormField
       name={name}
@@ -42,7 +43,11 @@ export function FormDatePickerInput({
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {value ? format(value, "PPP") : <span>Pick a date</span>}
+                {value ? (
+                  format(value, "PPP")
+                ) : (
+                  <span>{placeholder ? placeholder : "Pick a date"}</span>
+                )}
               </Button>
             </PopoverTrigger>
             <PopoverContent align={alignPopout} className="w-auto p-0">

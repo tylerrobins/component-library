@@ -1,3 +1,4 @@
+import type { RadioGroupInputProps, RadioItemInputProps } from "./Types/Form";
 import {
   FormControl,
   FormField,
@@ -6,7 +7,6 @@ import {
   FormDescription,
   FormMessage,
 } from "@/components/primatives/FormPrimative/src";
-import type { StandardFormProps } from "./Form";
 import {
   RadioGroup,
   RadioGroupItem,
@@ -21,10 +21,7 @@ export function FormRadioGroupInput({
   orientation = "vertical",
   children,
   ...props
-}: StandardFormProps & {
-  orientation?: "horizontal" | "vertical";
-  children: React.ReactNode;
-}) {
+}: RadioGroupInputProps) {
   return (
     <FormField
       name={name}
@@ -36,7 +33,11 @@ export function FormRadioGroupInput({
             <RadioGroup
               onValueChange={field.onChange}
               defaultValue={field.value}
-              className={orientationStyleFunc(orientation)}
+              className={
+                orientation === "horizontal"
+                  ? "flex flex-row space-y-1"
+                  : "flex flex-col space-y-1"
+              }
             >
               {children}
             </RadioGroup>
@@ -54,7 +55,7 @@ export function FormRadioItem({
   name,
   label,
   description,
-}: StandardFormProps & { label: string }) {
+}: RadioItemInputProps) {
   return (
     <FormItem
       className={cn("flex items-center space-x-3 space-y-0", className)}
@@ -66,12 +67,4 @@ export function FormRadioItem({
       {description && <FormDescription>{description}</FormDescription>}
     </FormItem>
   );
-}
-
-function orientationStyleFunc(orientation: string): string {
-  if (orientation === "horizontal") {
-    return "flex flex-row space-y-1";
-  } else {
-    return "flex flex-col space-y-1";
-  }
 }

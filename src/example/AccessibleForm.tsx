@@ -65,7 +65,6 @@ export function AccessibleForm() {
         name="name"
         label="The radio group"
         defaultValue="item3"
-        orientation="horizontal"
         required
       >
         <FormRadioItem name="item1" label="Item 1" />

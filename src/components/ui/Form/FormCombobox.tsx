@@ -1,3 +1,4 @@
+import type { ComboBoxInputProps } from "./Types/Form";
 import {
   FormControl,
   FormDescription,
@@ -6,7 +7,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/primatives/FormPrimative/src";
-import { StandardFormProps } from "./Form";
 import {
   Popover,
   PopoverContent,
@@ -25,21 +25,16 @@ import {
 } from "@/components/primatives/Command/src";
 import { useFormContext } from "react-hook-form";
 
-type ComboBoxInputTypes = {
-  combobox: { label: string; value: string }[];
-  searchable?: boolean;
-  category?: string;
-};
-
 export function FormComboboxInput({
   name,
+  className,
   label,
   combobox,
   searchable,
   category,
   description,
   ...props
-}: StandardFormProps & ComboBoxInputTypes) {
+}: ComboBoxInputProps) {
   const { setValue } = useFormContext();
   const placeholderValue = category ? category : name;
   return (
@@ -47,7 +42,7 @@ export function FormComboboxInput({
       name={name}
       {...props}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={cn("", className)}>
           {label && <FormLabel className="pr-2">{label}</FormLabel>}
           <Popover>
             <PopoverTrigger asChild>

@@ -1,19 +1,11 @@
-// Types for all form inputs
-export type StandardFormProps = {
-  name: string;
-  className?: string;
-  label?: string;
-  description?: string;
-  required?: boolean;
-  message?: string;
-  defaultValue?: string;
-};
+import type { StandardFormProps } from "./FormStandardProps";
 
 // Standard text inputs
 type TextInputBaseProps = {
   placeholder?: string;
   type?: "text" | "email" | "url";
 };
+
 // Props that require a message if give in text input
 type InputBaseMessageProps = {
   max?: number;
