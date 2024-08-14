@@ -72,7 +72,11 @@ export function AccessibleForm() {
         <FormRadioItem name="item3" label="Item 3" />
       </FormRadioGroupInput>
 
-      <FormCheckboxInput name="checkbox" label="Checkbox for checking..." />
+      <FormCheckboxInput
+        name="checkbox"
+        label="Checkbox for checking..."
+        // checked
+      />
       <FormComboboxInput
         name="combobox"
         label="ComboBox"

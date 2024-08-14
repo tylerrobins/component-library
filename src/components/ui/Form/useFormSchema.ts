@@ -61,7 +61,7 @@ export function useFormSchema(children: React.ReactNode) {
           case FormCheckboxInput:
             {
               shape[name] = handleBooleanInput(child.props);
-              defaultValues[name] = child.props.defaultValue || false;
+              defaultValues[name] = child.props.checked || false;
             }
             break;
           case FormComboboxInput: {

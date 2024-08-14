@@ -1,4 +1,4 @@
-import type { StandardFormTypes } from "./Types/Form";
+import type { CheckboxInputProps } from "./Types/Form";
 import {
   FormControl,
   FormDescription,
@@ -13,11 +13,10 @@ export function FormCheckboxInput({
   label,
   description,
   ...props
-}: StandardFormTypes) {
+}: CheckboxInputProps) {
   return (
     <FormField
       name={name}
-      //   control={form.control}
       {...props}
       render={({ field }) => (
         <FormItem>
