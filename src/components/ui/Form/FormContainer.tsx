@@ -1,4 +1,4 @@
-import React from "react";
+import type { FormContainerProps } from "./Types/Form";
 import { z } from "zod";
 import { useFormSchema } from "./useFormSchema";
 import { Button } from "@/components/primatives/Button/src";
@@ -9,11 +9,7 @@ export function FormContainer({
   className,
   onSubmit,
   children,
-}: {
-  className?: string;
-  onSubmit?: (values: unknown) => void;
-  children: React.ReactNode;
-}) {
+}: FormContainerProps) {
   const { form, schemaRef } = useFormSchema(children);
 
   function onSubmitHandler(values: z.infer<typeof schemaRef.current>) {

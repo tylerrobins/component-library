@@ -59,6 +59,7 @@ export function AccessibleForm() {
         label="Switch"
         description="This is the switch test"
         message="This field is required!!!"
+        disabled
         // required
       />
       <FormRadioGroupInput

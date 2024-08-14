@@ -13,7 +13,7 @@ export function FormSwitchInput({
   name,
   label,
   description,
-  defaultValue,
+  disabled,
   ...props
 }: BooleanInputProps) {
   return (
@@ -21,28 +21,24 @@ export function FormSwitchInput({
       name={name}
       {...props}
       render={({ field }) => (
-        <>
-          <FormItem>
-            <div className="flex flex-row items-center justify-between">
-              <div className="space-y-0.5">
-                {/* Make this a generic that required either a label or description or both?
+        <FormItem>
+          <div className="flex flex-row items-center justify-between">
+            <div className="space-y-0.5">
+              {/* Make this a generic that required either a label or description or both?
                 Or just make it require on and the other can be an optional input? */}
-                {label && <FormLabel>{label}</FormLabel>}
-                {description && (
-                  <FormDescription>{description}</FormDescription>
-                )}
-              </div>
-              <FormControl>
-                <Switch
-                  defaultChecked={defaultValue ? true : false}
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-              </FormControl>
+              {label && <FormLabel>{label}</FormLabel>}
+              {description && <FormDescription>{description}</FormDescription>}
             </div>
-            <FormMessage />
-          </FormItem>
-        </>
+            <FormControl>
+              <Switch
+                checked={field.value}
+                onCheckedChange={field.onChange}
+                disabled={disabled}
+              />
+            </FormControl>
+          </div>
+          <FormMessage />
+        </FormItem>
       )}
     />
   );
