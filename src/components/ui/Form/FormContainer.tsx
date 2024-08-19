@@ -1,6 +1,5 @@
 import type { FormContainerProps } from "./Types/Form";
 import { z } from "zod";
-import { useFormSchema } from "./useFormSchema";
 import { Button } from "@/components/primatives/Button/src";
 import { Form } from "@/components/primatives/FormPrimative/src";
 import { cn } from "@/lib/utils/index";
@@ -10,8 +9,6 @@ export function FormContainer({
   onSubmit,
   children,
 }: FormContainerProps) {
-  const { form, schemaRef } = useFormSchema(children);
-
   function onSubmitHandler(values: z.infer<typeof schemaRef.current>) {
     // Can remove the default console.log
     onSubmit ? onSubmit(values) : console.log(values);
