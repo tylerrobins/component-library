@@ -1,4 +1,4 @@
-import type { BooleanInputProps } from "../Types/Form";
+import type { StandardFormTypes } from "../Types/Form";
 import {
   FormControl,
   FormDescription,
@@ -14,12 +14,12 @@ export function FormCheckboxInput({
   label,
   description,
   disabled,
-  ...props
-}: BooleanInputProps) {
+}: StandardFormTypes & {
+  disabled?: boolean;
+}) {
   return (
     <FormField
       name={name}
-      {...props}
       render={({ field }) => (
         <FormItem>
           <FormControl>

@@ -1,4 +1,4 @@
-import type { RadioGroupInputProps, RadioItemInputProps } from "../Types/Form";
+import type { StandardFormTypes } from "../Types/Form";
 import {
   FormControl,
   FormField,
@@ -20,12 +20,13 @@ export function FormRadioGroupInput({
   description,
   orientation = "vertical",
   children,
-  ...props
-}: RadioGroupInputProps) {
+}: StandardFormTypes & {
+  orientation?: "horizontal" | "vertical";
+  children: React.ReactNode;
+}) {
   return (
     <FormField
       name={name}
-      {...props}
       render={({ field }) => (
         <FormItem className={cn("", className)}>
           {label && <FormLabel>{label}</FormLabel>}
@@ -55,7 +56,7 @@ export function FormRadioItem({
   name,
   label,
   description,
-}: RadioItemInputProps) {
+}: StandardFormTypes & { label: string }) {
   return (
     <FormItem
       className={cn("flex items-center space-x-3 space-y-0", className)}

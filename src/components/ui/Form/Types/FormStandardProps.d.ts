@@ -4,7 +4,8 @@ export type StandardFormTypes = {
   className?: string;
   label?: string;
   description?: string;
-  required?: boolean;
-  message?: string;
-  defaultValue?: string | boolean | number;
+  placeholder?: string;
+  // required?: boolean;
+  // message?: string;
+  // defaultValue?: string | boolean | number;
 };

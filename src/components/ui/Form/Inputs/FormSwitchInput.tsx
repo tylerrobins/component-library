@@ -1,4 +1,3 @@
-import type { BooleanInputProps } from "../Types/Form";
 import {
   FormField,
   FormItem,
@@ -8,18 +7,17 @@ import {
   FormMessage,
 } from "@/components/primatives/FormPrimative/src";
 import { Switch } from "@/components/primatives/Switch/src";
+import { StandardFormTypes } from "../Types/FormStandardProps";
 
 export function FormSwitchInput({
   name,
   label,
   description,
   disabled,
-  ...props
-}: BooleanInputProps) {
+}: StandardFormTypes & { disabled: boolean }) {
   return (
     <FormField
       name={name}
-      {...props}
       render={({ field }) => (
         <FormItem>
           <div className="flex flex-row items-center justify-between">

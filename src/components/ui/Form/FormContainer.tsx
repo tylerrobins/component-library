@@ -6,10 +6,11 @@ import { cn } from "@/lib/utils/index";
 
 export function FormContainer({
   className,
+  form,
   onSubmit,
   children,
 }: FormContainerProps) {
-  function onSubmitHandler(values: z.infer<typeof schemaRef.current>) {
+  function onSubmitHandler(values: z.infer<typeof form>) {
     // Can remove the default console.log
     onSubmit ? onSubmit(values) : console.log(values);
   }

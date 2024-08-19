@@ -1,4 +1,4 @@
-import type { DatePickerInputProps } from "../Types/Form";
+import type { StandardFormTypes } from "../Types/Form";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils/index";
@@ -24,12 +24,12 @@ export function FormDatePickerInput({
   description,
   placeholder,
   alignPopout,
-  ...props
-}: DatePickerInputProps) {
+}: StandardFormTypes & {
+  alignPopout?: "start" | "center" | "end";
+}) {
   return (
     <FormField
       name={name}
-      {...props}
       render={({ field: { onChange, value } }) => (
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}

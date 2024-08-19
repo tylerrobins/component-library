@@ -1,4 +1,4 @@
-import type { ComboBoxInputProps } from "../Types/Form";
+import type { StandardFormTypes } from "../Types/Form";
 import {
   FormControl,
   FormDescription,
@@ -33,14 +33,16 @@ export function FormComboboxInput({
   searchable,
   category,
   description,
-  ...props
-}: ComboBoxInputProps) {
+}: StandardFormTypes & {
+  combobox: { label: string; value: string }[];
+  searchable?: boolean;
+  category?: string;
+}) {
   const { setValue } = useFormContext();
   const placeholderValue = category ? category : name;
   return (
     <FormField
       name={name}
-      {...props}
       render={({ field }) => (
         <FormItem className={cn("", className)}>
           {label && <FormLabel className="pr-2">{label}</FormLabel>}
