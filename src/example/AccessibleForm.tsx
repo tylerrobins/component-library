@@ -4,12 +4,12 @@ import {
   FormDatePickerInput,
   FormCheckboxInput,
   FormComboboxInput,
-} from "@/components/ui/Form";
+} from "@/components/ui/Form/Form";
 import {
   FormRadioGroupInput,
   FormRadioItem,
-} from "@/components/ui/Form/FormRadioGroupInput";
-import { FormSwitchInput } from "@/components/ui/Form/FormSwitchInput";
+} from "@/components/ui/Form/Inputs/FormRadioGroupInput";
+import { FormSwitchInput } from "@/components/ui/Form/Inputs/FormSwitchInput";
 
 export function AccessibleForm() {
   return (

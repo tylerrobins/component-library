@@ -7,7 +7,7 @@ import {
   FormRadioGroupInput,
   FormCheckboxInput,
   FormComboboxInput,
-} from "../Form";
+} from "./Form";
 import type { TextInputProps } from "./Types/Form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,8 +15,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 export function useFormSchema(children: React.ReactNode) {
   const schemaRef = useRef<z.ZodObject<any>>(undefined!); // eslint-disable-line @typescript-eslint/no-explicit-any
   const defaultValuesRef = useRef<Record<string, string>>({});
-
-  console.log("USE FORM SCHEMA RUN");
 
   if (!schemaRef.current) {
     const shape: Record<
@@ -73,7 +71,6 @@ export function useFormSchema(children: React.ReactNode) {
         }
       }
     });
-    console.log(`Shape: ${JSON.stringify(shape)}`);
     schemaRef.current = z.object(shape);
     defaultValuesRef.current = defaultValues;
   }

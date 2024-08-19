@@ -1,4 +1,4 @@
-import type { BooleanInputProps } from "./Types/Form";
+import type { BooleanInputProps } from "../Types/Form";
 import {
   FormControl,
   FormDescription,

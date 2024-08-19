@@ -1,4 +1,4 @@
-import type { ComboBoxInputProps } from "./Types/Form";
+import type { ComboBoxInputProps } from "../Types/Form";
 import {
   FormControl,
   FormDescription,
