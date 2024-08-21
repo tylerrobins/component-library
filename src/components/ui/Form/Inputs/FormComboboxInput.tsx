@@ -1,4 +1,5 @@
 import type { StandardFormTypes } from "../Types/Form";
+import type { FormSchemaType } from "@/example/TestFormSchema";
 import {
   FormControl,
   FormDescription,
@@ -25,7 +26,7 @@ import {
 } from "@/components/primatives/Command/src";
 import { useFormContext } from "react-hook-form";
 
-export function FormComboboxInput<TFromValue>({
+export function FormComboboxInput({
   name,
   className,
   label,
@@ -33,7 +34,7 @@ export function FormComboboxInput<TFromValue>({
   searchable,
   category,
   description,
-}: StandardFormTypes<TFromValue> & {
+}: StandardFormTypes<FormSchemaType> & {
   combobox: { label: string; value: string }[];
   searchable?: boolean;
   category?: string;

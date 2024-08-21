@@ -29,7 +29,6 @@ export function TestForm() {
       />
       <FormTextInput name="max" label="Max" placeholder="Max of 5" />
       <FormTextInput name="maximum" label="Maximum" placeholder="Max of 5" />
-      <FormTextInput name="otherOne" label="OtherOne" placeholder="Max of 5" />
       <FormTextInput name="email" label="Email" placeholder="email..." />
       <FormTextInput name="length" label="Length" placeholder="Length of 5" />
       <FormDatePickerInput
@@ -42,7 +41,18 @@ export function TestForm() {
         label="Switch"
         description="This is the switch test"
       />
+      <FormSwitchInput
+        name="switched"
+        label="Switch"
+        description="This is the switch test"
+      />
       <FormRadioGroupInput name="radioGroup" label="The radio group">
+        <FormRadioItem name="item1" label="Item 1" />
+        <FormRadioItem name="item2" label="Item 2" />
+        <FormRadioItem name="item3" label="Item 3" />
+      </FormRadioGroupInput>
+
+      <FormRadioGroupInput name="radioGroups" label="The radio group">
         <FormRadioItem name="item1" label="Item 1" />
         <FormRadioItem name="item2" label="Item 2" />
         <FormRadioItem name="item3" label="Item 3" />

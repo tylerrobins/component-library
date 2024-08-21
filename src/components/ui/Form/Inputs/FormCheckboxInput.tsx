@@ -1,3 +1,4 @@
+import type { FormSchemaType } from "@/example/TestFormSchema";
 import type { StandardFormTypes } from "../Types/Form";
 import {
   FormControl,
@@ -9,12 +10,12 @@ import {
 } from "@/components/primatives/FormPrimitive/src";
 import { Checkbox } from "@/components/primatives/Checkbox/src";
 
-export function FormCheckboxInput<TFromValue>({
+export function FormCheckboxInput({
   name,
   label,
   description,
   disabled,
-}: StandardFormTypes<TFromValue> & {
+}: StandardFormTypes<FormSchemaType> & {
   disabled?: boolean;
 }) {
   return (

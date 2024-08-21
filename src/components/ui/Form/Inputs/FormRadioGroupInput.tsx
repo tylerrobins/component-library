@@ -1,4 +1,5 @@
 import type { StandardFormTypes } from "../Types/Form";
+import type { FormSchemaType } from "@/example/TestFormSchema";
 import {
   FormControl,
   FormField,
@@ -13,14 +14,14 @@ import {
 } from "@/components/primatives/Radio-group/src";
 import { cn } from "@/lib/utils/index";
 
-export function FormRadioGroupInput<TFromValue>({
+export function FormRadioGroupInput({
   className,
   name,
   label,
   description,
   orientation = "vertical",
   children,
-}: StandardFormTypes<TFromValue> & {
+}: StandardFormTypes<FormSchemaType> & {
   orientation?: "horizontal" | "vertical";
   children: React.ReactNode;
 }) {

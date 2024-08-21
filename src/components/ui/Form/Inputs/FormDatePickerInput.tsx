@@ -1,4 +1,5 @@
 import type { StandardFormTypes } from "../Types/Form";
+import type { FormSchemaType } from "@/example/TestFormSchema";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils/index";
@@ -18,13 +19,13 @@ import {
   FormDescription,
 } from "@/components/primatives/FormPrimitive/src";
 
-export function FormDatePickerInput<TFromValue>({
+export function FormDatePickerInput({
   name,
   label,
   description,
   placeholder,
   alignPopout,
-}: StandardFormTypes<TFromValue> & {
+}: StandardFormTypes<FormSchemaType> & {
   alignPopout?: "start" | "center" | "end";
 }) {
   return (

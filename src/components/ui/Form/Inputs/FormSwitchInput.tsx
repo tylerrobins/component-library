@@ -1,3 +1,4 @@
+import type { FormSchemaType } from "@/example/TestFormSchema";
 import {
   FormField,
   FormItem,
@@ -9,12 +10,12 @@ import {
 import { Switch } from "@/components/primatives/Switch/src";
 import { StandardFormTypes } from "../Types/FormStandardProps";
 
-export function FormSwitchInput<TFromValue>({
+export function FormSwitchInput({
   name,
   label,
   description,
   disabled,
-}: StandardFormTypes<TFromValue> & { disabled?: boolean }) {
+}: StandardFormTypes<FormSchemaType> & { disabled?: boolean }) {
   return (
     <FormField
       name={name}
