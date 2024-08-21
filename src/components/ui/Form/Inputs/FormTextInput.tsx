@@ -1,4 +1,3 @@
-import type { StandardFormTypes } from "../Types/Form";
 import {
   FormItem,
   FormLabel,
@@ -10,6 +9,15 @@ import {
 import { Input } from "@/components/primatives/Input/src";
 import type { FormSchemaType } from "@/example/TestFormSchema";
 import { cn } from "@/lib/utils/index";
+import { FieldValues } from "react-hook-form";
+
+export type StandardFormTypes<TFormValues extends FieldValues> = {
+  name: Extract<keyof TFormValues, string>;
+  className?: string;
+  label?: string;
+  description?: string;
+  placeholder?: string;
+};
 
 export function FormTextInput({
   className,

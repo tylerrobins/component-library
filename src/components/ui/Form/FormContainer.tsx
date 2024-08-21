@@ -3,18 +3,18 @@ import { Form } from "@/components/primatives/FormPrimitive/src";
 import { cn } from "@/lib/utils/index";
 import { FieldValues, UseFormReturn } from "react-hook-form";
 
-export interface FormContainerProps<TFormValues extends FieldValues> {
+export interface FormContainerProps {
   form: UseFormReturn<TFormValues>;
   className?: string;
   onSubmit?: (values: TFormValues) => void;
   children: React.ReactNode;
 }
-export function FormContainer<TFormValues extends FieldValues>({
+export function FormContainer({
   form,
   className,
   onSubmit,
   children,
-}: FormContainerProps<TFormValues>) {
+}: FormContainerProps) {
   function onSubmitHandler(values: TFormValues) {
     onSubmit ? onSubmit(values) : console.log(values);
   }
