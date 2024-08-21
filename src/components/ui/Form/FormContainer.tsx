@@ -4,17 +4,17 @@ import { cn } from "@/lib/utils/index";
 import { FieldValues, UseFormReturn } from "react-hook-form";
 
 export interface FormContainerProps {
-  form: UseFormReturn<TFormValues>;
+  form: UseFormReturn<TFormValues extends FieldValues>;
   className?: string;
   onSubmit?: (values: TFormValues) => void;
   children: React.ReactNode;
 }
-export function FormContainer({
+export function FormContainer<TFormValues extends FieldValues>({
   form,
   className,
   onSubmit,
   children,
-}: FormContainerProps) {
+}: FormContainerProps<TFormValues>) {
   function onSubmitHandler(values: TFormValues) {
     onSubmit ? onSubmit(values) : console.log(values);
   }
