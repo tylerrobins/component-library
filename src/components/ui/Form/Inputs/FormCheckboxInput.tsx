@@ -1,4 +1,3 @@
-import type { FormSchemaType } from "@/example/TestFormSchema";
 import type { StandardFormTypes } from "../Types/Form";
 import {
   FormControl,
@@ -9,18 +8,21 @@ import {
   FormMessage,
 } from "@/components/primatives/FormPrimitive/src";
 import { Checkbox } from "@/components/primatives/Checkbox/src";
+import { FieldValues } from "react-hook-form";
 
-export function FormCheckboxInput({
+export function FormCheckboxInput<TFormValues extends FieldValues>({
+  form,
   name,
   label,
   description,
   disabled,
-}: StandardFormTypes<FormSchemaType> & {
+}: StandardFormTypes<TFormValues> & {
   disabled?: boolean;
 }) {
   return (
     <FormField
       name={name}
+      control={form.control}
       render={({ field }) => (
         <FormItem>
           <FormControl>

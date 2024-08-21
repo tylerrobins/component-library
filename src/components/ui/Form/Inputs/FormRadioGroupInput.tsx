@@ -1,5 +1,4 @@
 import type { StandardFormTypes } from "../Types/Form";
-import type { FormSchemaType } from "@/example/TestFormSchema";
 import {
   FormControl,
   FormField,
@@ -13,21 +12,24 @@ import {
   RadioGroupItem,
 } from "@/components/primatives/Radio-group/src";
 import { cn } from "@/lib/utils/index";
+import { FieldValues } from "react-hook-form";
 
-export function FormRadioGroupInput({
+export function FormRadioGroupInput<TFormValues extends FieldValues>({
+  form,
   className,
   name,
   label,
   description,
   orientation = "vertical",
   children,
-}: StandardFormTypes<FormSchemaType> & {
+}: StandardFormTypes<TFormValues> & {
   orientation?: "horizontal" | "vertical";
   children: React.ReactNode;
 }) {
   return (
     <FormField
       name={name}
+      control={form.control}
       render={({ field }) => (
         <FormItem className={cn("", className)}>
           {label && <FormLabel>{label}</FormLabel>}
@@ -52,7 +54,7 @@ export function FormRadioGroupInput({
   );
 }
 
-export function FormRadioItem<TFromValue>({
+export function FormRadioItem<TFromValue extends FieldValues>({
   className,
   name,
   label,

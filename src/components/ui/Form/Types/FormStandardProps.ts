@@ -1,6 +1,8 @@
-// Types for all form inputs
+import { FieldValues, Path, UseFormReturn } from "react-hook-form";
+
 export type StandardFormTypes<TFormValues extends FieldValues> = {
-  name: Extract<keyof TFormValues, string>;
+  form: UseFormReturn<TFormValues>;
+  name: Path<TFormValues>;
   className?: string;
   label?: string;
   description?: string;

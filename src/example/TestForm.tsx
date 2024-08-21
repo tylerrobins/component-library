@@ -19,18 +19,21 @@ export function TestForm() {
 
   return (
     <FormContainer form={form} className="bg-gray-100 w-[50%] rounded-md m-10">
-      <FormTextInput<FormSchemaType>
+      <FormTextInput
+        form={form}
         name="min"
         label="Min"
         placeholder="Min of 5"
         description="This is to test min"
       />
-      <FormTextInput<FormSchemaType>
+      <FormTextInput
+        form={form}
         name="maximum"
         label="Maximum"
         placeholder="Max of 5"
       />
-      <FormTextInput<FormSchemaType>
+      <FormTextInput
+        form={form}
         name="email"
         label="Email"
         placeholder="email..."

@@ -1,4 +1,3 @@
-import type { FormSchemaType } from "@/example/TestFormSchema";
 import {
   FormField,
   FormItem,
@@ -9,16 +8,19 @@ import {
 } from "@/components/primatives/FormPrimitive/src";
 import { Switch } from "@/components/primatives/Switch/src";
 import { StandardFormTypes } from "../Types/FormStandardProps";
+import { FieldValues } from "react-hook-form";
 
-export function FormSwitchInput({
+export function FormSwitchInput<TFormValues extends FieldValues>({
+  form,
   name,
   label,
   description,
   disabled,
-}: StandardFormTypes<FormSchemaType> & { disabled?: boolean }) {
+}: StandardFormTypes<TFormValues> & { disabled?: boolean }) {
   return (
     <FormField
       name={name}
+      control={form.control}
       render={({ field }) => (
         <FormItem>
           <div className="flex flex-row items-center justify-between">

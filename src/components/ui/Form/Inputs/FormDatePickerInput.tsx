@@ -1,5 +1,4 @@
 import type { StandardFormTypes } from "../Types/Form";
-import type { FormSchemaType } from "@/example/TestFormSchema";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils/index";
@@ -18,19 +17,22 @@ import {
   FormLabel,
   FormDescription,
 } from "@/components/primatives/FormPrimitive/src";
+import { FieldValues } from "react-hook-form";
 
-export function FormDatePickerInput({
+export function FormDatePickerInput<TFormValues extends FieldValues>({
+  form,
   name,
   label,
   description,
   placeholder,
   alignPopout,
-}: StandardFormTypes<FormSchemaType> & {
+}: StandardFormTypes<TFormValues> & {
   alignPopout?: "start" | "center" | "end";
 }) {
   return (
     <FormField
       name={name}
+      control={form.control}
       render={({ field: { onChange, value } }) => (
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}

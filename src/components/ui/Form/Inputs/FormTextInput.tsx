@@ -9,16 +9,10 @@ import {
 import { Input } from "@/components/primatives/Input/src";
 import { cn } from "@/lib/utils/index";
 import { FieldValues } from "react-hook-form";
-
-export type StandardFormTypes<TFormValues extends FieldValues> = {
-  name: Extract<keyof TFormValues, string>;
-  className?: string;
-  label?: string;
-  description?: string;
-  placeholder?: string;
-};
+import { StandardFormTypes } from "../Types/Form";
 
 export function FormTextInput<TFormValues extends FieldValues>({
+  form,
   className,
   name,
   placeholder,
@@ -28,6 +22,7 @@ export function FormTextInput<TFormValues extends FieldValues>({
   return (
     <FormField
       name={name}
+      control={form.control}
       render={({ field }) => (
         // What level do we want to apply the class to?
         <FormItem>

@@ -1,5 +1,4 @@
 import type { StandardFormTypes } from "../Types/Form";
-import type { FormSchemaType } from "@/example/TestFormSchema";
 import {
   FormControl,
   FormDescription,
@@ -24,9 +23,10 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/primatives/Command/src";
-import { useFormContext } from "react-hook-form";
+import { FieldValues } from "react-hook-form";
 
-export function FormComboboxInput({
+export function FormComboboxInput<TFormValues extends FieldValues>({
+  form,
   name,
   className,
   label,
@@ -34,16 +34,17 @@ export function FormComboboxInput({
   searchable,
   category,
   description,
-}: StandardFormTypes<FormSchemaType> & {
+}: StandardFormTypes<TFormValues> & {
   combobox: { label: string; value: string }[];
   searchable?: boolean;
   category?: string;
 }) {
-  const { setValue } = useFormContext();
+  // const { setValue } = useFormContext();
   const placeholderValue = category ? category : name;
   return (
     <FormField
       name={name}
+      control={form.control}
       render={({ field }) => (
         <FormItem className={cn("", className)}>
           {label && <FormLabel className="pr-2">{label}</FormLabel>}
@@ -81,7 +82,7 @@ export function FormComboboxInput({
                         value={e.label}
                         key={e.value}
                         onSelect={() => {
-                          setValue(name, e.value);
+                          form.setValue(name, e.value as any); // eslint-disable-line @typescript-eslint/no-explicit-any
                         }}
                       >
                         {e.label}
