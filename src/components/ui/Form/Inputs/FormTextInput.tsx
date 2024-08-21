@@ -1,3 +1,4 @@
+import { useFormSchema } from "../FormContainer";
 import type { StandardFormTypes } from "../Types/Form";
 import {
   FormItem,
@@ -6,8 +7,9 @@ import {
   FormDescription,
   FormMessage,
   FormField,
-} from "@/components/primatives/FormPrimative/src";
+} from "@/components/primatives/FormPrimitive/src";
 import { Input } from "@/components/primatives/Input/src";
+import type { FormSchemaType } from "@/example/TestFormSchema";
 import { cn } from "@/lib/utils/index";
 
 export function FormTextInput({
@@ -16,7 +18,15 @@ export function FormTextInput({
   placeholder,
   description,
   label,
-}: StandardFormTypes) {
+}: StandardFormTypes<FormSchemaType>) {
+  const schema = useFormSchema();
+
+  // Ensure the name prop is a valid key from the schema
+  if (!(name in schema.shape)) {
+    throw new Error(
+      `Invalid field name: ${name}. Ensure it matches a key in the form schema.`,
+    );
+  }
   return (
     <FormField
       name={name}

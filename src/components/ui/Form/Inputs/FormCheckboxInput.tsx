@@ -6,15 +6,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/primatives/FormPrimative/src";
+} from "@/components/primatives/FormPrimitive/src";
 import { Checkbox } from "@/components/primatives/Checkbox/src";
 
-export function FormCheckboxInput({
+export function FormCheckboxInput<TFromValue>({
   name,
   label,
   description,
   disabled,
-}: StandardFormTypes & {
+}: StandardFormTypes<TFromValue> & {
   disabled?: boolean;
 }) {
   return (

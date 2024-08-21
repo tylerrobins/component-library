@@ -5,16 +5,16 @@ import {
   FormDescription,
   FormControl,
   FormMessage,
-} from "@/components/primatives/FormPrimative/src";
+} from "@/components/primatives/FormPrimitive/src";
 import { Switch } from "@/components/primatives/Switch/src";
 import { StandardFormTypes } from "../Types/FormStandardProps";
 
-export function FormSwitchInput({
+export function FormSwitchInput<TFromValue>({
   name,
   label,
   description,
   disabled,
-}: StandardFormTypes & { disabled: boolean }) {
+}: StandardFormTypes<TFromValue> & { disabled?: boolean }) {
   return (
     <FormField
       name={name}

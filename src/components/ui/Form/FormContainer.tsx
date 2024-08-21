@@ -1,17 +1,31 @@
-import type { FormContainerProps } from "./Types/Form";
-import { z } from "zod";
+import { createContext, useContext } from "react";
 import { Button } from "@/components/primatives/Button/src";
-import { Form } from "@/components/primatives/FormPrimative/src";
+import { Form } from "@/components/primatives/FormPrimitive/src";
 import { cn } from "@/lib/utils/index";
+import { FieldValues, UseFormReturn } from "react-hook-form";
+import { ZodObject, ZodRawShape } from "zod";
 
-export function FormContainer({
-  className,
+interface FormSchemaContextValue {
+  schema: ZodObject<ZodRawShape>;
+}
+
+const FormSchemaContext = createContext<FormSchemaContextValue | undefined>(
+  undefined,
+);
+
+export interface FormContainerProps<TFormValues extends FieldValues> {
+  form: UseFormReturn<TFormValues>;
+  className?: string;
+  onSubmit?: (values: TFormValues) => void;
+  children: React.ReactNode;
+}
+export function FormContainer<TFormValues extends FieldValues>({
   form,
+  className,
   onSubmit,
   children,
-}: FormContainerProps) {
-  function onSubmitHandler(values: z.infer<typeof form>) {
-    // Can remove the default console.log
+}: FormContainerProps<TFormValues>) {
+  function onSubmitHandler(values: TFormValues) {
     onSubmit ? onSubmit(values) : console.log(values);
   }
 
@@ -26,4 +40,12 @@ export function FormContainer({
       </form>
     </Form>
   );
+}
+
+export function useFormSchema() {
+  const context = useContext(FormSchemaContext);
+  if (!context) {
+    throw new Error("useFormSchema must be used within a FormContainer");
+  }
+  return context.schema;
 }

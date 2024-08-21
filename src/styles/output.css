@@ -853,6 +853,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.\!mt-0 {
+  margin-top: 0px !important;
+}
+
 .-ml-4 {
   margin-left: -1rem;
 }
@@ -915,30 +919,6 @@ body {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.mt-0 {
-  margin-top: 0px;
-}
-
-.mt-\[0px\] {
-  margin-top: 0px;
-}
-
-.\!mt-0 {
-  margin-top: 0px !important;
-}
-
-.-mt-0 {
-  margin-top: -0px;
-}
-
-.-mt-0\.5 {
-  margin-top: -0.125rem;
-}
-
-.-mt-2 {
-  margin-top: -0.5rem;
 }
 
 .line-clamp-2 {
@@ -1984,10 +1964,6 @@ body {
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem;
 }
 
 .text-left {

@@ -6,7 +6,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/primatives/FormPrimative/src";
+} from "@/components/primatives/FormPrimitive/src";
 import {
   Popover,
   PopoverContent,
@@ -25,7 +25,7 @@ import {
 } from "@/components/primatives/Command/src";
 import { useFormContext } from "react-hook-form";
 
-export function FormComboboxInput({
+export function FormComboboxInput<TFromValue>({
   name,
   className,
   label,
@@ -33,7 +33,7 @@ export function FormComboboxInput({
   searchable,
   category,
   description,
-}: StandardFormTypes & {
+}: StandardFormTypes<TFromValue> & {
   combobox: { label: string; value: string }[];
   searchable?: boolean;
   category?: string;

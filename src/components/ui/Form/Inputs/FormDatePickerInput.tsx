@@ -16,15 +16,15 @@ import {
   FormMessage,
   FormLabel,
   FormDescription,
-} from "@/components/primatives/FormPrimative/src";
+} from "@/components/primatives/FormPrimitive/src";
 
-export function FormDatePickerInput({
+export function FormDatePickerInput<TFromValue>({
   name,
   label,
   description,
   placeholder,
   alignPopout,
-}: StandardFormTypes & {
+}: StandardFormTypes<TFromValue> & {
   alignPopout?: "start" | "center" | "end";
 }) {
   return (
