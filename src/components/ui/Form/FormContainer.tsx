@@ -1,10 +1,11 @@
 import { Button } from "@/components/primatives/Button/src";
 import { Form } from "@/components/primatives/FormPrimitive/src";
 import { cn } from "@/lib/utils/index";
+import React from "react";
 import { FieldValues, UseFormReturn } from "react-hook-form";
 
-export interface FormContainerProps {
-  form: UseFormReturn<TFormValues extends FieldValues>;
+export interface FormContainerProps<TFormValues extends FieldValues> {
+  form: UseFormReturn<TFormValues>;
   className?: string;
   onSubmit?: (values: TFormValues) => void;
   children: React.ReactNode;

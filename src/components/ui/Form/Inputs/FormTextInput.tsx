@@ -7,7 +7,6 @@ import {
   FormField,
 } from "@/components/primatives/FormPrimitive/src";
 import { Input } from "@/components/primatives/Input/src";
-import type { FormSchemaType } from "@/example/TestFormSchema";
 import { cn } from "@/lib/utils/index";
 import { FieldValues } from "react-hook-form";
 
@@ -19,13 +18,13 @@ export type StandardFormTypes<TFormValues extends FieldValues> = {
   placeholder?: string;
 };
 
-export function FormTextInput({
+export function FormTextInput<TFormValues extends FieldValues>({
   className,
   name,
   placeholder,
   description,
   label,
-}: StandardFormTypes<FormSchemaType>) {
+}: StandardFormTypes<TFormValues>) {
   return (
     <FormField
       name={name}
